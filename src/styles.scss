@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', monospace;
+  //   font-family: 'Annai MN';
+
+  //   font-family: 'Verdana', sans-serif;
+
+  line-height: 1.4;
+}
+
+:root {
+  --dark-primary-color: #3f3e3e;
+  --light-primary-color: #f1f1f1;
+  --light-gray-color: #f5faf6;
+}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product card</title>
+  </head>
+  <body>
+    <div class="card">
+      <!-- <a href="../product-details/product-details">see</a> -->
+      @if (product) {
+        <app-product-details [product]="product" />
+      } @else {
+        <p>choose any product</p>
+      }
+      <button (click)="onSelectedProduct()">
+        More details
+        <!-- <p>{{ product.name }}</p> -->
+      </button>
+    </div>
+  </body>
+</html>

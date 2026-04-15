@@ -1,0 +1,33 @@
+img {
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  padding: 10px;
+  margin: 20px 0;
+  width: 100vw;
+  height: 100px;
+}
+
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  img {
+    width: 70px;
+  }
+
+  h4 {
+    margin-bottom: 10px;
+  }
+
+  i {
+    color: var(--dark-primary-color);
+  }
+}
