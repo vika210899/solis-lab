@@ -1,26 +1,16 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Categories</title>
-  </head>
-  <body>
-    <div class="container">
-      <ul id="categories" class="card-flex">
-        @for (category of categories; track category.id) {
-          <li>
-            <app-category-card [category]="category" (select)="onSelectCategory($event)" />
-          </li>
-        }
-      </ul>
-    </div>
-    <div>
-      @if (selectedCategoryId) {
-        <app-products [categoryId]="selectedCategoryId" />
-      } @else {
-        <p>choose any category</p>
-      }
-    </div>
-  </body>
-</html>
+<div class="container">
+  <ul id="categories" class="card-flex">
+    @for (category of categories; track category.id) {
+      <li>
+        <app-category-card [category]="category" (select)="onSelectCategory($event)" />
+      </li>
+    }
+  </ul>
+</div>
+<div>
+  @if (selectedCategoryId) {
+    <app-products [categoryId]="selectedCategoryId" />
+  } @else {
+    <p>choose any category</p>
+  }
+</div>

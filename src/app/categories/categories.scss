@@ -1,17 +1,29 @@
 .container {
   width: 100vw;
-  padding: 20px;
+  padding: 1.5rem;
 }
 
 .card-flex {
+  // width: 100%;
+  // padding: 0.5rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
-  gap: 20px;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
 ul {
   list-style: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0.8rem;
+  }
+
+  .card-flex {
+    justify-content: center;
+  }
 }
