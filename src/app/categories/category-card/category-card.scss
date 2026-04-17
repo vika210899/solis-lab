@@ -37,12 +37,8 @@
   }
 
   .card h3 {
-    font-size: medium;
+    font-size: 1.5rem;
   }
-
-  // .card button {
-  //   line-height: 1;
-  // }
 }
 
 @media (max-width: 768px) {
@@ -54,12 +50,7 @@
     text-align: center;
   }
 
-  .card h3 {
-    font-size: small;
-  }
-
   .card button {
     font-size: 0.7rem;
-    line-height: 1;
   }
 }

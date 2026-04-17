@@ -44,10 +44,6 @@
   .product-card h4 {
     font-size: medium;
   }
-
-  .product-card button {
-    line-height: 1;
-  }
 }
 
 @media (max-width: 768px) {
@@ -59,7 +55,6 @@
   }
 
   .product-card button {
-    font-size: 0.7rem;
-    line-height: 1;
+    font-size: 0.8rem;
   }
 }
