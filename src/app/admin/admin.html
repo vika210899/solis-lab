@@ -1,0 +1,22 @@
+<h1 id="adminSide">Admin side</h1>
+<h2>Jewelry - {{ selectedCategory?.name }}</h2>
+
+<div class="flex">
+  <aside>
+    <ul id="categories" class="aside-card-flex">
+      @for (category of categories; track category.id) {
+        <li>
+          <a
+            [class.active]="category.id === selectedCategory?.id"
+            (click)="onSelectCategory(category.id)"
+            >{{ category.name }} {{ category.id === selectedCategory?.id }}</a
+          >
+          <!-- <app-category-card [category]="category" (select)="onSelectCategory($event)" /> -->
+        </li>
+      }
+    </ul>
+  </aside>
+  <section class="section-card-flex">
+    <app-products-admin [categoryId]="selectedCategoryId" />
+  </section>
+</div>

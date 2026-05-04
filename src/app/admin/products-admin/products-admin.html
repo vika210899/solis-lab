@@ -1,0 +1,39 @@
+@if (!isOpenAddingForm) {
+  <button class="btn green btn-medium" (click)="onStartAddItem()">Add item</button>
+}
+
+@if (isOpenAddingForm) {
+  <app-new-item (cancel)="onCancelAddItem()" (addItem)="onAddItem($event)" />
+}
+
+<div class="container">
+  @if (!categoryId) {
+    <ul id="products" class="card-flex">
+      @for (product of allProducts; track product.id) {
+        <li>
+          <app-product-card-admin
+            [product]="product"
+            (select)="onSelectProduct($event)"
+            (delete)="onDeleteItem($event)"
+          />
+        </li>
+      }
+    </ul>
+  } @else {
+    <ul id="products" class="card-flex">
+      @for (product of selectedCategoryProducts; track product.id) {
+        <li>
+          <app-product-card-admin
+            [product]="product"
+            (select)="onSelectProduct($event)"
+            (delete)="onDeleteItem($event)"
+          />
+        </li>
+      }
+    </ul>
+  }
+</div>
+
+<!-- (archive)="onArchiveItem($event)"
+(unarchive)="onUnarchiveItem($event)"
+(delete)="onDeleteItem($event)" -->

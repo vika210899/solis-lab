@@ -1,18 +1,22 @@
 export const CATEGORY_LIST = [
-    {
-        id: 'n',
-        name: 'Necklaces',
-    },
-    {
-        id: 'e',
-        name: 'Earrings',
-    },
-    {
-        id: 'b',
-        name: 'Bracelets',
-    },
-    {
-        id: 'r',
-        name: 'Rings',
-    }
-]
+  {
+    id: 'n',
+    name: 'Necklaces',
+    image: 'IMG_1444.jpeg',
+  },
+  {
+    id: 'e',
+    name: 'Earrings',
+    image: 'IMG_9466.jpeg',
+  },
+  {
+    id: 'b',
+    name: 'Bracelets',
+    image: '',
+  },
+  {
+    id: 'r',
+    name: 'Rings',
+    image: '',
+  },
+];

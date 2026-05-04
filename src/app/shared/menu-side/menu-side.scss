@@ -1,0 +1,28 @@
+.side-menu {
+  // width: calc(calc(100% - 7.5rem) * 0.13);
+  // flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  // align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+
+  a {
+    display: block;
+    // background-color: var(--light-primary-color);
+    // border-radius: 5px;
+    padding: 0.5rem;
+    width: 10rem;
+    font-size: 1.4rem;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-bottom: 2px solid var(--green);
+    }
+  }
+}
+.active {
+  border-bottom: 2px solid var(--green);
+}

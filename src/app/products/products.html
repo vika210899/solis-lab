@@ -1,9 +1,19 @@
 <div class="container">
-  <ul id="products" class="card-flex">
-    @for (product of selectedCategoryProducts; track product.id) {
-      <li>
-        <app-product-card [product]="product" (select)="onSelectProduct($event)" />
-      </li>
-    }
-  </ul>
+  @if (!categoryId) {
+    <ul id="products" class="card-flex">
+      @for (product of allProducts; track product.id) {
+        <li>
+          <app-product-card [product]="product" (select)="onSelectProduct($event)" />
+        </li>
+      }
+    </ul>
+  } @else {
+    <ul id="products" class="card-flex">
+      @for (product of selectedCategoryProducts; track product.id) {
+        <li>
+          <app-product-card [product]="product" (select)="onSelectProduct($event)" />
+        </li>
+      }
+    </ul>
+  }
 </div>

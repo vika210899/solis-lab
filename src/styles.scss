@@ -15,4 +15,107 @@
   --dark-primary-color: #3f3e3e;
   --light-primary-color: #f1f1f1;
   --light-gray-color: #f5faf6;
+  --green: darkolivegreen;
+  --pink: pink;
+}
+
+h1 {
+  padding: 0 2rem;
+  font-size: 2.5rem;
+  margin: 1rem 0;
+}
+
+h2 {
+  // text-align: center;
+  padding: 0 2rem;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+dialog {
+  z-index: 100;
+  //   position: relative;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 0.3rem 1rem;
+  margin: 0.5rem;
+  width: 9rem;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px var(--dark-primary-color);
+  opacity: 1;
+}
+
+.btn-medium {
+  cursor: pointer;
+  padding: 0.3rem 1rem;
+  margin: 0.5rem;
+  width: 15rem;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px var(--dark-primary-color);
+  opacity: 1;
+}
+
+.btn-menu {
+  cursor: pointer;
+  padding: 0.3rem 1rem;
+  margin: 0.5rem;
+  width: 9rem;
+  border: none;
+  // border-radius: 3px;
+  // box-shadow: 1px 1px 2px var(--dark-primary-color);
+  opacity: 1;
+}
+
+.green {
+  background-color: var(--green);
+  color: var(--light-primary-color);
+}
+
+.pink {
+  background-color: var(--pink);
+  color: var(--dark-primary-color);
+}
+
+.form {
+  padding: 1rem 2rem;
+
+  &:focus-within {
+    background-color: rgba(pink, 0.5);
+  }
+
+  h4 {
+    margin: 1rem 0.5rem;
+  }
+
+  input[type='text'],
+  select {
+    padding: 0.3rem;
+    border: none;
+    outline: none;
+  }
+
+  input:focus {
+    border-bottom: 2px solid var(--green);
+  }
+
+  //   input:valid {
+  //     border: 3px solid green;
+  //     font-weight: 700;
+  //   }
+
+  .option {
+    margin: 0.5rem;
+  }
 }

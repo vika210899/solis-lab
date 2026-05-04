@@ -1,16 +1,44 @@
-<div class="container">
-  <ul id="categories" class="card-flex">
-    @for (category of categories; track category.id) {
-      <li>
-        <app-category-card [category]="category" (select)="onSelectCategory($event)" />
-      </li>
-    }
-  </ul>
-</div>
-<!-- <div>
-  @if (selectedCategoryId) {
-    <app-products [categoryId]="selectedCategoryId" />
-  } @else {
-    <p>choose any category</p>
+<div>
+  @if (!selectedCategoryId) {
+    <app-entry />
+    <h2>Jewelry Catalog</h2>
+    <ul id="categories" class="container card-flex">
+      @for (category of categories; track category.id) {
+        <li>
+          <app-category-card [category]="category" (select)="onSelectCategory($event)" />
+        </li>
+      }
+    </ul>
+    <h2>Jewelry Gallery</h2>
+    <section class="container card-flex">
+      <!-- @for (category of categories; track category.id) { -->
+      <app-products />
+      <!-- } -->
+    </section>
   }
-</div> -->
+</div>
+<div>
+  @if (selectedCategoryId) {
+    <h2>Jewelry - {{ selectedCategory?.name }}</h2>
+    <div class="flex">
+      <app-menu-side>
+        <ul id="categories" class="aside-card-flex">
+          @for (category of categories; track category.id) {
+            <li>
+              <a
+                class="btn-menu"
+                [class.active]="category.id === selectedCategory?.id"
+                (click)="onSelectCategory(category.id)"
+                >{{ category.name }} {{ category.id === selectedCategory?.id }}</a
+              >
+              <!-- <app-category-card [category]="category" (select)="onSelectCategory($event)" /> -->
+            </li>
+          }
+        </ul>
+      </app-menu-side>
+      <section class="section-card-flex">
+        <app-products [categoryId]="selectedCategoryId" />
+      </section>
+    </div>
+  }
+</div>

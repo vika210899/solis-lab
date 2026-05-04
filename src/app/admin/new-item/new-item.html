@@ -1,0 +1,79 @@
+<!-- (click)="onCancelAddItem()" -->
+<dialog open>
+  <form id="toAddItem" class="form" (ngSubmit)="onAddItem()">
+    <h4>Adding Item</h4>
+    <div class="option">
+      <label for="productsToAddName">Name of new item: </label>
+      <input
+        type="text"
+        placeholder="Name of item"
+        maxlength="30"
+        id="productsToAddName"
+        name="newName"
+        [(ngModel)]="newName"
+        required
+      />
+    </div>
+    <div class="option">
+      <label for="productsToAddPicture">Please, add picture of item: </label>
+      <input
+        type="image"
+        id="productsToAddPicture"
+        name="productsToAddPicture"
+        required
+        [(ngModel)]="newPicture"
+      />
+    </div>
+    <div class="option">
+      <label for="productsToAddCategory">Choose category of item: </label>
+      <select name="newCategoryTypeId" id="productsToAddCategory" [(ngModel)]="newCategoryTypeId">
+        @for (category of categories; track category.id) {
+          <option value="{{ category.id }}">{{ category.name }}</option>
+        }
+      </select>
+    </div>
+    <div class="option">
+      <label for="newInStock">Is this item in stock? </label>
+      <input
+        type="radio"
+        id="newInStock"
+        name="newInStock"
+        value="true"
+        checked
+        [(ngModel)]="newInStock"
+      />
+      In stock
+      <input
+        type="radio"
+        id="newInStock"
+        name="newInStock"
+        value="false"
+        [(ngModel)]="newInStock"
+      />
+      Archieve
+    </div>
+    <div class="option">
+      <label for="productsToAddIsNew">Is this item new? </label>
+      <input
+        type="radio"
+        id="productsToAddIsNew"
+        name="productsToAddIsNew"
+        value="true"
+        checked
+        [(ngModel)]="newIsNew"
+      />
+      New
+      <input
+        type="radio"
+        id="productsToAddIsNew"
+        name="productsToAddIsNew"
+        value="false"
+        [(ngModel)]="newIsNew"
+      />
+      Regular
+    </div>
+
+    <button class="btn green" type="submit">Submit</button>
+    <button class="btn" type="reset" (click)="onCancelAddItem()">Back</button>
+  </form>
+</dialog>

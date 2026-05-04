@@ -20,4 +20,22 @@ export type Product = {
   name: string;
   picture: string;
   categoryTypeId: string;
+  inStock: boolean;
+  isNew: boolean;
+
+  // addNewItem() {
+  //   //
+  // }
+};
+
+export type NewProduct = {
+  name: string;
+  picture: string;
+  categoryTypeId: string;
+  inStock: boolean;
+  isNew: boolean;
+
+  // addNewItem() {
+  //   //
+  // }
 };
