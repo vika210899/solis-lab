@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { CATEGORY_LIST } from '../category-list';
+import { Component, inject } from '@angular/core';
 import { CategoryCard } from './category-card/category-card';
 import { Products } from '../products/products';
 import { Entry } from '../entry/entry';
 import { MenuSide } from '../shared/menu-side/menu-side';
+import { CategoriesService } from './categories.service';
 
 @Component({
   selector: 'app-categories',
@@ -12,12 +12,13 @@ import { MenuSide } from '../shared/menu-side/menu-side';
   styleUrl: './categories.scss',
 })
 export class Categories {
-  categories = CATEGORY_LIST;
+  private categoriesService = inject(CategoriesService);
+
   selectedCategoryId?: string;
   selected!: boolean;
 
   get selectedCategory() {
-    return this.categories.find((category) => category.id === this.selectedCategoryId);
+    return this.categoriesService.getSelectedCategory(this.selectedCategoryId!);
   }
 
   onSelectCategory(id: string) {

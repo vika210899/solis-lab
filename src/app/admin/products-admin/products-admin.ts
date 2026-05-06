@@ -1,10 +1,10 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { ProductCard } from '../../products/product-card/product-card';
-import { type Product, NewProduct } from '../../products/product-details/product.module';
+// import { ProductCard } from '../../products/product-card/product-card';
+// import { type Product, NewProduct } from '../../products/product-details/product.module';
 import { ProductCardAdmin } from '../product-card-admin/product-card-admin';
-import { CATEGORY_LIST } from '../../category-list';
 import { NewItem } from '../new-item/new-item';
 import { ProductsService } from '../../products/products.service';
+// import { CategoriesService } from '../../categories/categories.service';
 
 @Component({
   selector: 'app-products-admin',
@@ -13,11 +13,11 @@ import { ProductsService } from '../../products/products.service';
   styleUrl: './products-admin.scss',
 })
 export class ProductsAdmin {
-  selectedProductId?: string;
-  isOpenAddingForm = false;
+  @Input({ required: true }) categoryId!: string;
   private productsService = inject(ProductsService);
 
-  @Input({ required: true }) categoryId!: string;
+  selectedProductId?: string;
+  isOpenAddingForm = false;
 
   get selectedProduct() {
     return this.productsService.getSelectedProduct(this.selectedProductId!);
@@ -49,7 +49,6 @@ export class ProductsAdmin {
 
   onStartAddItem() {
     this.isOpenAddingForm = true;
-    console.log(this.selectedProductId);
   }
 
   onCancelAddItem() {

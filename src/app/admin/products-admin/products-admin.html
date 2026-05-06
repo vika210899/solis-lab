@@ -1,10 +1,5 @@
-@if (!isOpenAddingForm) {
-  <button class="btn green btn-medium" (click)="onStartAddItem()">Add item</button>
-}
-
-@if (isOpenAddingForm) {
-  <app-new-item (cancel)="onCancelAddItem()" />
-}
+<button class="btn green btn-medium" (click)="onStartAddItem()">Add item</button>
+<app-new-item [isOpen]="isOpenAddingForm" (cancel)="onCancelAddItem()" />
 
 <div class="container">
   <ul id="products" class="card-flex">

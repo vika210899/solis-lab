@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PRODUCT_LIST } from '../product-list';
-import { NewProduct, type Product } from './product-details/product.module';
+import { type NewProduct, type Product } from './product-details/product.module';
 
 @Injectable({ providedIn: 'root' })
 export class ProductsService {

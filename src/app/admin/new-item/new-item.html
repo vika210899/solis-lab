@@ -1,4 +1,4 @@
-<!-- (click)="onCancelAddItem()" -->
+<!-- [open]="isOpen" (click)="onCancelAddItem()" -->
 <dialog open>
   <form id="toAddItem" class="form" (ngSubmit)="onAddItem()">
     <h4>Adding Item</h4>
@@ -12,7 +12,7 @@
         name="newName"
         [(ngModel)]="newName"
         required
-        />
+      />
     </div>
     <div class="option">
       <label for="productsToAddPicture">Please, add picture of item: </label>

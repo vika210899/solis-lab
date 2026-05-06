@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { CATEGORY_LIST } from '../category-list';
+import { Component, inject } from '@angular/core';
 import { ProductsAdmin } from './products-admin/products-admin';
+import { CategoriesService } from '../categories/categories.service';
 
 @Component({
   selector: 'app-admin',
@@ -9,12 +9,13 @@ import { ProductsAdmin } from './products-admin/products-admin';
   styleUrl: './admin.scss',
 })
 export class Admin {
+  private categoriesService = inject(CategoriesService);
   selectedCategoryId = 'n';
-  categories = CATEGORY_LIST;
+  categories = this.categoriesService.getAllCategories;
   selected!: boolean;
 
   get selectedCategory() {
-    return this.categories.find((category) => category.id === this.selectedCategoryId);
+    return this.categoriesService.getSelectedCategory(this.selectedCategoryId);
   }
 
   onSelectCategory(id: string) {

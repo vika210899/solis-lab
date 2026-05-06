@@ -1,8 +1,8 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { CATEGORY_LIST } from '../../category-list';
 import { type NewProduct } from '../../products/product-details/product.module';
 import { FormsModule } from '@angular/forms';
 import { ProductsService } from '../../products/products.service';
+import { CategoriesService } from '../../categories/categories.service';
 
 @Component({
   selector: 'app-new-item',
@@ -11,17 +11,17 @@ import { ProductsService } from '../../products/products.service';
   styleUrl: './new-item.scss',
 })
 export class NewItem {
+  @Input({ required: true }) isOpen!: boolean;
+  @Output() cancel = new EventEmitter<void>();
+  private productsService = inject(ProductsService);
+  private categoriesService = inject(CategoriesService);
+  categories = this.categoriesService.getAllCategories();
   newId = '';
   newName = '';
   newPicture = '';
   newCategoryTypeId = '';
   newInStock = true;
   newIsNew = true;
-  @Output() cancel = new EventEmitter<void>();
-  @Output() addItem = new EventEmitter<NewProduct>();
-  private productsService = inject(ProductsService);
-
-  categories = CATEGORY_LIST;
 
   onAddItem() {
     this.productsService.addProduct({

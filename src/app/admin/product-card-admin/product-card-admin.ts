@@ -13,9 +13,7 @@ import { ProductsService } from '../../products/products.service';
 export class ProductCardAdmin {
   @Input({ required: true }) product!: Product;
   @Output() select = new EventEmitter();
-  @Output() delete = new EventEmitter<string>();
   private productsService = inject(ProductsService);
-
   isOpenToArchieveForm = false;
   isOpenInStockForm = false;
   isOpenDeleteForm = false;
@@ -61,7 +59,6 @@ export class ProductCardAdmin {
   }
 
   onDeleteItem() {
-    console.log(this.product.id);
     this.productsService.deleteProduct(this.product.id);
     this.isOpenDeleteForm = false;
   }
