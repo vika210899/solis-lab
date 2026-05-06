@@ -3,37 +3,15 @@
 }
 
 @if (isOpenAddingForm) {
-  <app-new-item (cancel)="onCancelAddItem()" (addItem)="onAddItem($event)" />
+  <app-new-item (cancel)="onCancelAddItem()" />
 }
 
 <div class="container">
-  @if (!categoryId) {
-    <ul id="products" class="card-flex">
-      @for (product of allProducts; track product.id) {
-        <li>
-          <app-product-card-admin
-            [product]="product"
-            (select)="onSelectProduct($event)"
-            (delete)="onDeleteItem($event)"
-          />
-        </li>
-      }
-    </ul>
-  } @else {
-    <ul id="products" class="card-flex">
-      @for (product of selectedCategoryProducts; track product.id) {
-        <li>
-          <app-product-card-admin
-            [product]="product"
-            (select)="onSelectProduct($event)"
-            (delete)="onDeleteItem($event)"
-          />
-        </li>
-      }
-    </ul>
-  }
+  <ul id="products" class="card-flex">
+    @for (product of selectedCategoryProducts; track product.id) {
+      <li>
+        <app-product-card-admin [product]="product" (select)="onSelectProduct($event)" />
+      </li>
+    }
+  </ul>
 </div>
-
-<!-- (archive)="onArchiveItem($event)"
-(unarchive)="onUnarchiveItem($event)"
-(delete)="onDeleteItem($event)" -->

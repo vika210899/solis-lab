@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { PRODUCT_LIST } from '../../product-list';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ProductCard } from '../../products/product-card/product-card';
 import { type Product, NewProduct } from '../../products/product-details/product.module';
 import { ProductCardAdmin } from '../product-card-admin/product-card-admin';
 import { CATEGORY_LIST } from '../../category-list';
 import { NewItem } from '../new-item/new-item';
+import { ProductsService } from '../../products/products.service';
 
 @Component({
   selector: 'app-products-admin',
@@ -13,35 +13,34 @@ import { NewItem } from '../new-item/new-item';
   styleUrl: './products-admin.scss',
 })
 export class ProductsAdmin {
-  products = PRODUCT_LIST;
   selectedProductId?: string;
   isOpenAddingForm = false;
-  newId = '';
+  private productsService = inject(ProductsService);
 
-  @Input() categoryId?: string;
+  @Input({ required: true }) categoryId!: string;
 
   get selectedProduct() {
-    return this.products.find((product: Product) => product.id === this.selectedProductId);
+    return this.productsService.getSelectedProduct(this.selectedProductId!);
   }
 
   get selectedCategoryProducts() {
-    return this.products.filter((product: Product) => product.categoryTypeId === this.categoryId);
+    return this.productsService.getSelectedCategoryProducts(this.categoryId);
   }
 
   get inStockProducts() {
-    return this.products.filter((product: Product) => product.inStock === true);
+    return this.productsService.getInStockProducts();
   }
 
   get inArchiveProducts() {
-    return this.products.filter((product: Product) => product.inStock === false);
+    return this.productsService.getInArchiveProducts();
   }
 
   get newProducts() {
-    return this.products.filter((product: Product) => product.isNew === true);
+    return this.productsService.getNewProducts();
   }
 
   get allProducts() {
-    return this.products;
+    return this.productsService.getAllProducts();
   }
 
   onSelectProduct(id: string) {
@@ -51,19 +50,6 @@ export class ProductsAdmin {
   onStartAddItem() {
     this.isOpenAddingForm = true;
     console.log(this.selectedProductId);
-  }
-
-  onAddItem(newItemData: NewProduct) {
-    this.newId = newItemData.categoryTypeId + Number(this.selectedCategoryProducts.length + 1);
-    this.products.push({
-      id: this.newId,
-      name: newItemData.name,
-      picture: newItemData.picture,
-      categoryTypeId: newItemData.categoryTypeId,
-      inStock: newItemData.inStock,
-      isNew: newItemData.isNew,
-    });
-    this.isOpenAddingForm = false;
   }
 
   onCancelAddItem() {
@@ -85,9 +71,4 @@ export class ProductsAdmin {
   //     }
   //   }
   // }
-
-  onDeleteItem(id: string) {
-    console.log(id);
-    this.products = this.products.filter((product) => product.id !== id);
-  }
 }

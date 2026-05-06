@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Product } from '../../products/product-details/product.module';
 import { FormsModule } from '@angular/forms';
 import { ProductCardTemplate } from '../../shared/product-card-template/product-card-template';
+import { ProductsService } from '../../products/products.service';
 
 @Component({
   selector: 'app-product-card-admin',
@@ -12,9 +13,8 @@ import { ProductCardTemplate } from '../../shared/product-card-template/product-
 export class ProductCardAdmin {
   @Input({ required: true }) product!: Product;
   @Output() select = new EventEmitter();
-  // @Output() archive = new EventEmitter<string>();
-  // @Output() unarchive = new EventEmitter<string>();
   @Output() delete = new EventEmitter<string>();
+  private productsService = inject(ProductsService);
 
   isOpenToArchieveForm = false;
   isOpenInStockForm = false;
@@ -31,8 +31,6 @@ export class ProductCardAdmin {
   }
 
   onArchiveItem() {
-    // console.log(this.onSelectedProduct);
-    // this.archive.emit(this.product.id);
     this.product.inStock = false;
     this.isOpenToArchieveForm = false;
   }
@@ -50,7 +48,6 @@ export class ProductCardAdmin {
   onUnarchiveItem() {
     this.product.inStock = true;
     this.isOpenInStockForm = false;
-    // this.unarchive.emit(this.product.id);
   }
 
   onCancelToInStock() {
@@ -65,7 +62,7 @@ export class ProductCardAdmin {
 
   onDeleteItem() {
     console.log(this.product.id);
-    this.delete.emit(this.product.id);
+    this.productsService.deleteProduct(this.product.id);
     this.isOpenDeleteForm = false;
   }
 
