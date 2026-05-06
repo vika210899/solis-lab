@@ -6,6 +6,16 @@ import { type NewProduct, type Product } from './product-details/product.module'
 export class ProductsService {
   private products = PRODUCT_LIST;
 
+  constructor() {
+    if (typeof window !== 'undefined') {
+      const products = localStorage.getItem('products');
+
+      if (products) {
+        this.products = JSON.parse(products);
+      }
+    }
+  }
+
   getAllProducts() {
     return this.products;
   }
@@ -42,9 +52,15 @@ export class ProductsService {
       inStock: newProductData.inStock,
       isNew: newProductData.isNew,
     });
+    this.saveProducts();
   }
 
   deleteProduct(id: string) {
-    return (this.products = this.products.filter((product) => product.id !== id));
+    this.products = this.products.filter((product) => product.id !== id);
+    this.saveProducts();
+  }
+
+  private saveProducts() {
+    localStorage.setItem('products', JSON.stringify(this.products));
   }
 }

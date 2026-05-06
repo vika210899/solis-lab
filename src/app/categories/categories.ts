@@ -16,6 +16,7 @@ export class Categories {
 
   selectedCategoryId?: string;
   selected!: boolean;
+  categories = this.categoriesService.getAllCategories();
 
   get selectedCategory() {
     return this.categoriesService.getSelectedCategory(this.selectedCategoryId!);

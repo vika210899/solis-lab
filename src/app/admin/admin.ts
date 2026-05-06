@@ -11,7 +11,7 @@ import { CategoriesService } from '../categories/categories.service';
 export class Admin {
   private categoriesService = inject(CategoriesService);
   selectedCategoryId = 'n';
-  categories = this.categoriesService.getAllCategories;
+  categories = this.categoriesService.getAllCategories();
   selected!: boolean;
 
   get selectedCategory() {
