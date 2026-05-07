@@ -60,6 +60,24 @@ export class ProductsService {
     this.saveProducts();
   }
 
+  archiveProduct(id: string) {
+    for (let product of this.products) {
+      if (product.id === id) {
+        product.inStock = false;
+      }
+    }
+    this.saveProducts();
+  }
+
+  unarchiveProduct(id: string) {
+    for (let product of this.products) {
+      if (product.id === id) {
+        product.inStock = true;
+      }
+    }
+    this.saveProducts();
+  }
+
   private saveProducts() {
     localStorage.setItem('products', JSON.stringify(this.products));
   }

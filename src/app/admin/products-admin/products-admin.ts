@@ -54,20 +54,4 @@ export class ProductsAdmin {
   onCancelAddItem() {
     this.isOpenAddingForm = false;
   }
-
-  // onArchiveItem(id: string) {
-  //   for (let product of this.products) {
-  //     if (product.id === id) {
-  //       product.inStock = false;
-  //     }
-  //   }
-  // }
-
-  // onUnarchiveItem(id: string) {
-  //   for (let product of this.products) {
-  //     if (product.id === id) {
-  //       product.inStock = true;
-  //     }
-  //   }
-  // }
 }

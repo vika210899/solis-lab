@@ -29,7 +29,8 @@ export class ProductCardAdmin {
   }
 
   onArchiveItem() {
-    this.product.inStock = false;
+    // this.product.inStock = false;
+    this.productsService.archiveProduct(this.product.id);
     this.isOpenToArchieveForm = false;
   }
 
@@ -44,7 +45,8 @@ export class ProductCardAdmin {
   }
 
   onUnarchiveItem() {
-    this.product.inStock = true;
+    // this.product.inStock = true;
+    this.productsService.unarchiveProduct(this.product.id);
     this.isOpenInStockForm = false;
   }
 
