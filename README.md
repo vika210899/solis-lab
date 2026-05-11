@@ -1,59 +1,68 @@
-# SolisLabProject
+# SolisLab Pet Project
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
+Pet project for a jewelry brand web-app built with Angular.
 
-## Development server
+## Tech Stack
 
-To start a local development server, run:
+- Angular
+- TypeScript
+- SCSS
+- HTML
 
-```bash
-ng serve
-```
+## Status
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Work in progress
 
-## Code scaffolding
+## Getting Started
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Prerequisites
 
-```bash
-ng generate component component-name
-```
+- Node.js >= 18
+- npm >= 9
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Installation
 
-```bash
-ng generate --help
-```
+`npm install`
 
-## Building
+### Run locally
 
-To build the project run:
+`npm start`
 
-```bash
-ng build
-```
+or
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+`ng serve`
 
-## Running unit tests
+App will be available at:
+http://localhost:4200/
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Build
 
-```bash
-ng test
-```
+`npm run build`
 
-## Running end-to-end tests
+Build output:
 
-For end-to-end (e2e) testing, run:
+`dist/`
 
-```bash
-ng e2e
-```
+## Environment Configuration
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Located in:
 
-## Additional Resources
+`src/environments/`
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- `environment.ts` — development
+- `environment.prod.ts` — production
+
+## Features
+
+- basic product showcase UI
+- reusable components
+- simple navigation
+
+## Purpose
+
+This project is created as a **pet project** to:
+
+- practice Angular architecture
+- build UI components
+- experiment with styling and layout
+- develop a product-oriented interface
