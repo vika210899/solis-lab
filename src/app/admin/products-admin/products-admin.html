@@ -5,7 +5,7 @@
   <ul id="products" class="card-flex">
     @for (product of selectedCategoryProducts; track product.id) {
       <li>
-        <app-product-card-admin [product]="product" (select)="onSelectProduct($event)" />
+        <app-product-card-admin [product]="product" />
       </li>
     }
   </ul>

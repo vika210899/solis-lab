@@ -1,6 +1,7 @@
-import { Component, Inject, Input, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProductCard } from './product-card/product-card';
 import { ProductsService } from './products.service';
+import { CategoriesService } from '../categories/categories.service';
 
 @Component({
   selector: 'app-products',
@@ -9,23 +10,16 @@ import { ProductsService } from './products.service';
   styleUrl: './products.scss',
 })
 export class Products {
-  selectedProductId?: string;
-  @Input() categoryId?: string;
   private productsService = inject(ProductsService);
-
-  get selectedProduct() {
-    return this.productsService.getSelectedProduct(this.selectedProductId!);
-  }
-
-  get selectedCategoryProducts() {
-    return this.productsService.getSelectedCategoryProducts(this.categoryId!);
-  }
+  public categoriesService = inject(CategoriesService);
 
   get allProducts() {
     return this.productsService.getAllProducts();
   }
 
-  onSelectProduct(id: string) {
-    this.selectedProductId = id;
+  get selectedCategoryProducts() {
+    return this.productsService.getSelectedCategoryProducts(
+      this.categoriesService.getSelectedCategory()()!.id,
+    );
   }
 }

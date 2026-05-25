@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { PRODUCT_LIST } from '../product-list';
-import { type NewProduct, type Product } from './product-details/product.module';
+import { type NewProduct, type Product } from './product.module';
 
 @Injectable({ providedIn: 'root' })
 export class ProductsService {
   private products = PRODUCT_LIST;
+  selectedProduct = signal<Product | undefined>(undefined);
 
   constructor() {
     if (typeof window !== 'undefined') {
@@ -24,8 +25,13 @@ export class ProductsService {
     return this.products.filter((product: Product) => product.categoryTypeId === categoryId);
   }
 
-  getSelectedProduct(productId: string) {
-    return this.products.find((product: Product) => product.id === productId);
+  saveAsSelectedProduct(productId: string) {
+    this.selectedProduct.set(this.products.find((product: Product) => product.id === productId));
+    return this.selectedProduct;
+  }
+
+  getSelectedProduct() {
+    return this.selectedProduct;
   }
 
   getInStockProducts() {

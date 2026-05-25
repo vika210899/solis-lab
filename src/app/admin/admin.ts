@@ -9,16 +9,13 @@ import { CategoriesService } from '../categories/categories.service';
   styleUrl: './admin.scss',
 })
 export class Admin {
-  private categoriesService = inject(CategoriesService);
+  public categoriesService = inject(CategoriesService);
   selectedCategoryId = 'n';
   categories = this.categoriesService.getAllCategories();
   selected!: boolean;
 
-  get selectedCategory() {
-    return this.categoriesService.getSelectedCategory(this.selectedCategoryId);
-  }
-
   onSelectCategory(id: string) {
     this.selectedCategoryId = id;
+    this.categoriesService.saveAsSelectedCategory(id);
   }
 }

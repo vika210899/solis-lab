@@ -1,9 +1,9 @@
 <div class="container">
-  @if (!categoryId) {
+  @if (!categoriesService.getSelectedCategory()()) {
     <ul id="products" class="card-flex">
       @for (product of allProducts; track product.id) {
         <li>
-          <app-product-card [product]="product" (select)="onSelectProduct($event)" />
+          <app-product-card [product]="product" />
         </li>
       }
     </ul>
@@ -11,7 +11,7 @@
     <ul id="products" class="card-flex">
       @for (product of selectedCategoryProducts; track product.id) {
         <li>
-          <app-product-card [product]="product" (select)="onSelectProduct($event)" />
+          <app-product-card [product]="product" />
         </li>
       }
     </ul>

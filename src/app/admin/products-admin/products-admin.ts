@@ -1,10 +1,8 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-// import { ProductCard } from '../../products/product-card/product-card';
-// import { type Product, NewProduct } from '../../products/product-details/product.module';
+import { Component, inject } from '@angular/core';
 import { ProductCardAdmin } from '../product-card-admin/product-card-admin';
 import { NewItem } from '../new-item/new-item';
 import { ProductsService } from '../../products/products.service';
-// import { CategoriesService } from '../../categories/categories.service';
+import { CategoriesService } from '../../categories/categories.service';
 
 @Component({
   selector: 'app-products-admin',
@@ -13,18 +11,19 @@ import { ProductsService } from '../../products/products.service';
   styleUrl: './products-admin.scss',
 })
 export class ProductsAdmin {
-  @Input({ required: true }) categoryId!: string;
   private productsService = inject(ProductsService);
+  private categoriesService = inject(CategoriesService);
 
   selectedProductId?: string;
   isOpenAddingForm = false;
+  categoryId = this.categoriesService.getSelectedCategory()()?.id;
 
   get selectedProduct() {
-    return this.productsService.getSelectedProduct(this.selectedProductId!);
+    return this.productsService.getSelectedProduct();
   }
 
   get selectedCategoryProducts() {
-    return this.productsService.getSelectedCategoryProducts(this.categoryId);
+    return this.productsService.getSelectedCategoryProducts(this.categoryId!);
   }
 
   get inStockProducts() {
@@ -41,10 +40,6 @@ export class ProductsAdmin {
 
   get allProducts() {
     return this.productsService.getAllProducts();
-  }
-
-  onSelectProduct(id: string) {
-    this.selectedProductId = id;
   }
 
   onStartAddItem() {

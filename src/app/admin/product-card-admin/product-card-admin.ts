@@ -1,5 +1,5 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { Product } from '../../products/product-details/product.module';
+import { Component, inject, Input } from '@angular/core';
+import { Product } from '../../products/product.module';
 import { FormsModule } from '@angular/forms';
 import { ProductCardTemplate } from '../../shared/product-card-template/product-card-template';
 import { ProductsService } from '../../products/products.service';
@@ -12,14 +12,13 @@ import { ProductsService } from '../../products/products.service';
 })
 export class ProductCardAdmin {
   @Input({ required: true }) product!: Product;
-  @Output() select = new EventEmitter();
   private productsService = inject(ProductsService);
   isOpenToArchieveForm = false;
   isOpenInStockForm = false;
   isOpenDeleteForm = false;
 
   onSelectedProduct() {
-    this.select.emit(this.product.id);
+    this.productsService.saveAsSelectedProduct(this.product.id);
   }
 
   // ---Archive---

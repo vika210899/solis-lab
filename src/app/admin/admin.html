@@ -1,5 +1,5 @@
 <h1 id="adminSide">Admin side</h1>
-<h2>Jewelry - {{ selectedCategory?.name }}</h2>
+<h2>Jewelry - {{ categoriesService.selectedCategory()?.name }}</h2>
 
 <div class="flex">
   <aside>
@@ -7,9 +7,10 @@
       @for (category of categories; track category.id) {
         <li>
           <a
-            [class.active]="category.id === selectedCategory?.id"
+            [class.active]="category.id === categoriesService.getSelectedCategory()()?.id"
             (click)="onSelectCategory(category.id)"
-            >{{ category.name }} {{ category.id === selectedCategory?.id }}</a
+            >{{ category.name }}
+            {{ category.id === categoriesService.getSelectedCategory()()?.id }}</a
           >
           <!-- <app-category-card [category]="category" (select)="onSelectCategory($event)" /> -->
         </li>
@@ -17,6 +18,6 @@
     </ul>
   </aside>
   <section class="section-card-flex">
-    <app-products-admin [categoryId]="selectedCategoryId" />
+    <app-products-admin />
   </section>
 </div>
