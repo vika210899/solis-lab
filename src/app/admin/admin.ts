@@ -10,6 +10,7 @@ import { CategoriesService } from '../categories/categories.service';
 })
 export class Admin {
   public categoriesService = inject(CategoriesService);
+
   selectedCategoryId = 'n';
   categories = this.categoriesService.getAllCategories();
   selected!: boolean;
