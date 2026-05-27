@@ -2,11 +2,33 @@
 <app-new-item [isOpen]="isOpenAddingForm" (cancel)="onCancelAddItem()" />
 
 <div class="container">
-  <ul id="products" class="card-flex">
-    @for (product of selectedCategoryProducts; track product.id) {
-      <li>
-        <app-product-card-admin [product]="product" />
-      </li>
+  @if (!this.categoriesService.getSelectedCategory()()?.id) {
+    @if (allProducts.length === 0) {
+      <p>New items coming soon 🫶</p>
+    } @else {
+      <ul id="products" class="card-flex">
+        @for (product of allProducts; track product.id) {
+          <li>
+            <app-product-card-template [product]="product">
+              <app-product-card-admin [product]="product" />
+            </app-product-card-template>
+          </li>
+        }
+      </ul>
     }
-  </ul>
+  } @else {
+    @if (selectedCategoryProducts.length === 0) {
+      <p>New items coming soon 🫶</p>
+    } @else {
+      <ul id="products" class="card-flex">
+        @for (product of selectedCategoryProducts; track product.id) {
+          <li>
+            <app-product-card-template [product]="product">
+              <app-product-card-admin [product]="product" />
+            </app-product-card-template>
+          </li>
+        }
+      </ul>
+    }
+  }
 </div>

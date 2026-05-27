@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { Product } from '../../products/product.module';
+import { Product } from '../../products/product.model';
 import { FormsModule } from '@angular/forms';
 import { ProductCardTemplate } from '../../shared/product-card-template/product-card-template';
 import { ProductsService } from '../../products/products.service';

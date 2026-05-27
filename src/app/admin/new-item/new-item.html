@@ -1,5 +1,5 @@
 <!-- [open]="isOpen" (click)="onCancelAddItem()" -->
-<dialog open>
+<dialog [open]="isOpen">
   <form id="toAddItem" class="form" (ngSubmit)="onAddItem()">
     <h4>Adding Item</h4>
     <div class="option">

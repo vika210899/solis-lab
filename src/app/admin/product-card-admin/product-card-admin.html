@@ -1,19 +1,13 @@
-<app-product-card-template>
-  @if (product) {
-    <img src="/{{ product.picture }}" alt="{{ product.name }} Picture" />
-    <h4>"{{ product.name }}"</h4>
-    @if (product.inStock) {
-      <button class="btn green" (click)="onStartArchiveItem()">Archive item</button>
-    } @else {
-      <p>temporary no available</p>
-      <button class="btn green" (click)="onStartUnarchiveItem()">Unarchive item</button>
-    }
-    <!-- <app-product-details [product]="product" /> -->
-    <!-- <button class="btn" (click)="onSelectedProduct()">Show me</button> -->
+@if (product.inStock) {
+  <button class="btn green" (click)="onStartArchiveItem()">Archive item</button>
+} @else {
+  <p>temporary no available</p>
+  <button class="btn green" (click)="onStartUnarchiveItem()">Unarchive item</button>
+}
+<!-- <app-product-details [product]="product" /> -->
+<!-- <button class="btn" (click)="onSelectedProduct()">Show me</button> -->
 
-    <button class="btn pink" (click)="onStartDeleteItem()">Delete item</button>
-  }
-</app-product-card-template>
+<button class="btn pink" (click)="onStartDeleteItem()">Delete item</button>
 
 <dialog (click)="onCancelToArchive()" [open]="isOpenToArchieveForm">
   <form id="toArchive" class="form" (ngSubmit)="onArchiveItem()">

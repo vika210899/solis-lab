@@ -3,27 +3,29 @@ import { ProductCardAdmin } from '../product-card-admin/product-card-admin';
 import { NewItem } from '../new-item/new-item';
 import { ProductsService } from '../../products/products.service';
 import { CategoriesService } from '../../categories/categories.service';
+import { ProductCardTemplate } from '../../shared/product-card-template/product-card-template';
 
 @Component({
   selector: 'app-products-admin',
-  imports: [ProductCardAdmin, NewItem],
+  imports: [ProductCardAdmin, NewItem, ProductCardTemplate],
   templateUrl: './products-admin.html',
   styleUrl: './products-admin.scss',
 })
 export class ProductsAdmin {
   private productsService = inject(ProductsService);
-  private categoriesService = inject(CategoriesService);
+  public categoriesService = inject(CategoriesService);
 
   selectedProductId?: string;
   isOpenAddingForm = false;
-  categoryId = this.categoriesService.getSelectedCategory()()?.id;
 
   get selectedProduct() {
     return this.productsService.getSelectedProduct();
   }
 
   get selectedCategoryProducts() {
-    return this.productsService.getSelectedCategoryProducts(this.categoryId!);
+    return this.productsService.getSelectedCategoryProducts(
+      this.categoriesService.getSelectedCategory()()!.id,
+    );
   }
 
   get inStockProducts() {

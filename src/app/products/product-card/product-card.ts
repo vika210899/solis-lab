@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { Product } from '../product.module';
+import { Product } from '../product.model';
 import { ProductCardTemplate } from '../../shared/product-card-template/product-card-template';
 import { ProductsService } from '../products.service';
 
@@ -10,10 +10,9 @@ import { ProductsService } from '../products.service';
   imports: [ProductCardTemplate],
 })
 export class ProductCard {
-  @Input({ required: true }) product!: Product;
-  private productsService = inject(ProductsService);
-
-  onSelectedProduct() {
-    this.productsService.saveAsSelectedProduct(this.product.id);
-  }
+  // @Input({ required: true }) product!: Product;
+  // private productsService = inject(ProductsService);
+  // onSelectedProduct() {
+  //   this.productsService.saveAsSelectedProduct(this.product.id);
+  // }
 }

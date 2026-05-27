@@ -1,5 +1,12 @@
 <h1 id="adminSide">Admin side</h1>
-<h2>Jewelry - {{ categoriesService.getSelectedCategory()()?.name }}</h2>
+<h2>
+  Jewelry
+  {{
+    categoriesService.getSelectedCategory()()
+      ? ' - ' + categoriesService.getSelectedCategory()()?.name
+      : ''
+  }}
+</h2>
 
 <div class="flex">
   <aside>
@@ -9,10 +16,8 @@
           <a
             [class.active]="category.id === categoriesService.getSelectedCategory()()?.id"
             (click)="onSelectCategory(category.id)"
-            >{{ category.name }}
-            {{ category.id === categoriesService.getSelectedCategory()()?.id }}</a
+            >{{ category.name }}</a
           >
-          <!-- <app-category-card [category]="category" (select)="onSelectCategory($event)" /> -->
         </li>
       }
     </ul>

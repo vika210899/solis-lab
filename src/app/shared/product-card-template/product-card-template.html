@@ -1,3 +1,7 @@
 <div class="product-card">
-  <ng-content />
+  @if (product) {
+    <img src="/{{ product.picture }}" alt="{{ product.name }} Picture" />
+    <h4>"{{ product.name }}"</h4>
+    <ng-content />
+  }
 </div>

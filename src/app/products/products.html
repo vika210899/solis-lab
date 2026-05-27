@@ -1,19 +1,27 @@
 <div class="container">
   @if (!categoriesService.getSelectedCategory()()) {
-    <ul id="products" class="card-flex">
-      @for (product of allProducts; track product.id) {
-        <li>
-          <app-product-card [product]="product" />
-        </li>
-      }
-    </ul>
+    @if (allProducts.length === 0) {
+      <p>New items coming soon 🫶</p>
+    } @else {
+      <ul id="products" class="card-flex">
+        @for (product of allProducts; track product.id) {
+          <li>
+            <app-product-card-template [product]="product" />
+          </li>
+        }
+      </ul>
+    }
   } @else {
-    <ul id="products" class="card-flex">
-      @for (product of selectedCategoryProducts; track product.id) {
-        <li>
-          <app-product-card [product]="product" />
-        </li>
-      }
-    </ul>
+    @if (selectedCategoryProducts.length === 0) {
+      <p>New items coming soon 🫶</p>
+    } @else {
+      <ul id="products" class="card-flex">
+        @for (product of selectedCategoryProducts; track product.id) {
+          <li>
+            <app-product-card-template [product]="product" />
+          </li>
+        }
+      </ul>
+    }
   }
 </div>
