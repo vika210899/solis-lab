@@ -1,4 +1,21 @@
-export const PRODUCT_LIST = [
+export interface Product {
+  id: string;
+  name: string;
+  picture: string;
+  categoryTypeId: string;
+  inStock: boolean;
+  isNew: boolean;
+}
+
+export interface NewProduct {
+  name: string;
+  picture: string;
+  categoryTypeId: string;
+  inStock: boolean;
+  isNew: boolean;
+}
+
+export const PRODUCT_LIST: Product[] = [
   {
     id: 'n1',
     name: 'necklace with pearls',

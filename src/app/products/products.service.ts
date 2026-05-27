@@ -1,11 +1,10 @@
 import { Injectable, signal } from '@angular/core';
-import { PRODUCT_LIST } from '../product-list';
-import { type NewProduct, type Product } from './product.module';
+import { PRODUCT_LIST, type NewProduct, type Product } from './product.model';
 
 @Injectable({ providedIn: 'root' })
 export class ProductsService {
   private products = PRODUCT_LIST;
-  selectedProduct = signal<Product | undefined>(undefined);
+  private selectedProduct = signal<Product | undefined>(undefined);
 
   constructor() {
     if (typeof window !== 'undefined') {
