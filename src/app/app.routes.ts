@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { Admin } from './admin/admin';
 import { App } from './app';
 export const routes: Routes = [
-  { path: '', component: App },
-  { path: 'admin-page', component: Admin },
+  //   { path: '', component: App },
+  //   { path: 'admin-page', component: Admin },
 ];
 
 //   {
@@ -19,4 +19,4 @@ export const routes: Routes = [
 //   imports: [RouterModule.forRoot(routes)],
 //   exports: [RouterModule],
 // })
-export class AppRoutingModule {}
+// export class AppRoutingModule {}
