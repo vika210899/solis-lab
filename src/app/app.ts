@@ -4,10 +4,11 @@ import { AppHeader } from './app-header/app-header';
 import { Categories } from './categories/categories';
 import { AppFooter } from './app-footer/app-footer';
 import { Admin } from './admin/admin';
+import { AboutUs } from './about-us/about-us';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AppHeader, Categories, AppFooter, Admin],
+  imports: [RouterOutlet, AppHeader, Categories, AppFooter, Admin, AboutUs],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

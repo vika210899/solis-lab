@@ -45,6 +45,20 @@ dialog {
   //   position: relative;
 }
 
+.green {
+  background-color: var(--green);
+  color: var(--light-primary-color);
+}
+
+.pink {
+  background-color: var(--pink);
+  color: var(--dark-primary-color);
+}
+
+.container {
+  margin: 60px;
+}
+
 .btn {
   cursor: pointer;
   padding: 0.3rem 1rem;
@@ -76,16 +90,6 @@ dialog {
   // border-radius: 3px;
   // box-shadow: 1px 1px 2px var(--dark-primary-color);
   opacity: 1;
-}
-
-.green {
-  background-color: var(--green);
-  color: var(--light-primary-color);
-}
-
-.pink {
-  background-color: var(--pink);
-  color: var(--dark-primary-color);
 }
 
 .form {

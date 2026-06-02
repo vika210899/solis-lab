@@ -1,12 +1,11 @@
 import { Component, computed, inject } from '@angular/core';
 import { Products } from '../products/products';
-import { Entry } from '../entry/entry';
 import { MenuSide } from '../shared/menu-side/menu-side';
 import { CategoriesService } from './categories.service';
 
 @Component({
   selector: 'app-categories',
-  imports: [Products, Entry, MenuSide],
+  imports: [Products, MenuSide],
   templateUrl: './categories.html',
   styleUrl: './categories.scss',
 })
