@@ -1,20 +1,30 @@
-<div class="footer-container footer-flex">
-  <div class="contact">
-    <h4>Contact Us</h4>
-    <ul>
-      <li>+381 (63) 774 78 56</li>
-      <li>solis__lab@smth.com</li>
-    </ul>
+<div class="footer-container">
+  <div class="footer-flex">
+    <app-logo-text />
+
+    <div class="contact">
+      <h4>INFO</h4>
+      <ul>
+        <li>Return</li>
+        <li>About</li>
+        <li>Delivery</li>
+        <li>Privacy Policy</li>
+      </ul>
+    </div>
+
+    <div class="social">
+      <h4>Follow Us</h4>
+      <ul>
+        <a href="#admin-page"><i class="fab fa-instagram fa-2x"></i></a>
+        <a (click)="openAdminPage()"><i class="fab fa-telegram fa-2x"></i></a>
+        <a href="#"><i class="fab fa-pinterest fa-2x"></i></a>
+      </ul>
+    </div>
+
+    <button appButtonArrow class="btn-medium">Contact us</button>
   </div>
-
-  <img src="logo.png" alt="Solis lab" />
-
-  <div class="social">
-    <h4>Follow Us</h4>
-    <ul>
-      <a (click)="openAdminPage()"><i class="fab fa-telegram fa-2x"></i></a>
-      <a href="#admin-page"><i class="fab fa-instagram fa-2x"></i></a>
-      <a href="#"><i class="fab fa-pinterest fa-2x"></i></a>
-    </ul>
+  <div class="footer-flex">
+    <span>2026 © Solislab</span>
+    <span>Design by Natalie Luss</span>
   </div>
 </div>
