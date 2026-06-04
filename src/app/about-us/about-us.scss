@@ -12,12 +12,16 @@ p {
 .flex {
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  gap: 80px;
 }
 
-img {
-  width: 645px;
+.flex-item {
+  max-width: 50%;
 }
+
+// img {
+//   width: 645px;
+// }
 
 span {
   display: block;
@@ -48,7 +52,7 @@ span.text {
   }
 
   img {
-    width: 343px;
+    // width: 343px;
     align-items: center;
   }
 
@@ -57,5 +61,10 @@ span.text {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+  }
+
+  .flex-item {
+    // flex: 1;
+    max-width: 100%;
   }
 }
