@@ -15,3 +15,9 @@
 // i {
 //   margin-left: 40px;
 // }
+
+@media (max-width: 768px) {
+  :host {
+    height: 45px;
+  }
+}
