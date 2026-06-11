@@ -53,6 +53,7 @@ export class ProductsService {
       id: newId,
       name: newProductData.name,
       picture: newProductData.picture,
+      price: newProductData.price,
       categoryTypeId: newProductData.categoryTypeId,
       inStock: newProductData.inStock,
       isNew: newProductData.isNew,

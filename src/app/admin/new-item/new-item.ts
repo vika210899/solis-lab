@@ -19,6 +19,7 @@ export class NewItem {
   newId = '';
   newName = '';
   newPicture = '';
+  newPrice = '';
   newCategoryTypeId = '';
   newInStock = true;
   newIsNew = true;
@@ -27,6 +28,7 @@ export class NewItem {
     this.productsService.addProduct({
       name: this.newName,
       picture: this.newPicture,
+      price: +this.newPrice,
       categoryTypeId: this.newCategoryTypeId,
       inStock: this.newInStock,
       isNew: this.newIsNew,
