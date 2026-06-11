@@ -50,6 +50,10 @@ h1 {
   flex-wrap: wrap;
 }
 
+.btn {
+  text-align: center;
+}
+
 @media (max-width: 992px) {
   .flex {
     gap: 1.5rem;

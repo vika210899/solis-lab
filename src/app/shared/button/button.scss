@@ -1,0 +1,15 @@
+:host {
+  height: 50px;
+  border-radius: 6px;
+  background-color: #2b2829;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-align: start;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  :host {
+    height: 45px;
+  }
+}
