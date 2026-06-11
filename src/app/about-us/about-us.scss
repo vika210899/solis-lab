@@ -1,12 +1,9 @@
 h2 {
-  // margin: 2rem 0 1rem;
-  margin: 0;
-  padding: 0;
   text-transform: uppercase;
 }
 
 p {
-  padding: 0 2rem 1rem;
+  font-family: 'Courier New', monospace;
 }
 
 .flex {
@@ -23,12 +20,18 @@ p {
 //   width: 645px;
 // }
 
-span {
+span,
+p,
+.us {
   display: block;
   margin-bottom: 10px;
 }
 
-span.text {
+.us {
+  color: #b3b3b3;
+}
+
+.text {
   font-size: small;
 }
 
@@ -41,12 +44,13 @@ span.text {
     margin: 1rem 0;
   }
 
-  span {
+  span,
+  .us {
     display: inline;
     margin-bottom: 10px;
   }
 
-  span.text {
+  .text {
     display: block;
     font-size: small;
   }
