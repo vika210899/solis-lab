@@ -1,5 +1,7 @@
 <div class="container">
+  <hr />
   <h1 id="adminSide">Admin side</h1>
+  <hr />
   <div class="flex-row">
     <h2>
       Jewelry
@@ -24,19 +26,7 @@
   </div>
 
   <div class="flex">
-    <aside>
-      <ul id="categories" class="aside-card-flex">
-        @for (category of categories; track category.id) {
-          <li>
-            <a
-              [class.active]="category.id === categoriesService.getSelectedCategory()()?.id"
-              (click)="onSelectCategory(category.id)"
-              >{{ category.name }}</a
-            >
-          </li>
-        }
-      </ul>
-    </aside>
+    <app-menu-side />
     <section class="section-card-flex">
       <app-products-admin />
     </section>

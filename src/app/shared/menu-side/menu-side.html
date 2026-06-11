@@ -1,3 +1,14 @@
-<div class="side-menu">
-  <ng-content />
-</div>
+<aside>
+  <ul id="categories" class="aside-card-flex">
+    @for (category of categories; track category.id) {
+      <li>
+        <a
+          class="btn-menu"
+          [class.active]="category.id === selectedCategory()?.id"
+          (click)="onSelectCategory(category.id)"
+          >{{ category.name }}</a
+        >
+      </li>
+    }
+  </ul>
+</aside>

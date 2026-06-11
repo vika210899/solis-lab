@@ -1,7 +1,10 @@
-// .container {
-//   width: 100vw;
-//   padding: 1.5rem;
-// }
+h1 {
+  text-align: center;
+}
+
+.container {
+  padding-top: 1rem;
+}
 
 .card-flex {
   // width: 100%;
@@ -15,8 +18,8 @@
 }
 
 .flex {
-  width: 100vw;
-  padding: 1.5rem;
+  // width: 100vw;
+  padding-top: 1.5rem;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -26,47 +29,13 @@
 }
 
 .flex-row {
-  width: 100vw;
-  padding: 1.5rem;
+  padding-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 3rem;
   flex-wrap: wrap;
-}
-
-// .aside-container {
-// }
-
-.aside-card-flex {
-  // width: calc(calc(100% - 7.5rem) * 0.13);
-  // flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  // align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-
-  a {
-    display: block;
-    cursor: pointer;
-    // background-color: var(--light-primary-color);
-    // border-radius: 5px;
-    padding: 0.5rem;
-    width: 10rem;
-    font-size: 1.4rem;
-
-    &:hover,
-    &:focus,
-    &:active {
-      border-bottom: 2px solid var(--green);
-    }
-  }
-}
-.active {
-  border-bottom: 2px solid var(--green);
 }
 
 .section-card-flex {
@@ -88,26 +57,12 @@
 }
 
 @media (max-width: 768px) {
-  // .container {
-  //   padding: 0.8rem;
-  // }
-
   .card-flex {
     justify-content: center;
   }
 
   .flex {
     flex-direction: column;
-  }
-
-  .aside-card-flex {
-    flex-direction: row;
-    gap: 1rem;
-
-    a {
-      display: inline;
-      font-size: 1.2rem;
-    }
   }
 
   .section-card-flex {

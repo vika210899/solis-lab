@@ -2,20 +2,7 @@
   <div class="container">
     <h2>Jewelry - {{ selectedCategory()?.name }}</h2>
     <div class="flex">
-      <app-menu-side>
-        <ul id="categories" class="aside-card-flex">
-          @for (category of categories; track category.id) {
-            <li>
-              <a
-                class="btn-menu"
-                [class.active]="category.id === selectedCategory()?.id"
-                (click)="onSelectCategory(category.id)"
-                >{{ category.name }}</a
-              >
-            </li>
-          }
-        </ul>
-      </app-menu-side>
+      <app-menu-side />
       <section class="section-card-flex">
         <app-products />
       </section>

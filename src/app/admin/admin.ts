@@ -3,10 +3,11 @@ import { ProductsAdmin } from './products-admin/products-admin';
 import { CategoriesService } from '../categories/categories.service';
 import { NewItem } from './new-item/new-item';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MenuSide } from '../shared/menu-side/menu-side';
 
 @Component({
   selector: 'app-admin',
-  imports: [ProductsAdmin, NewItem, MatProgressSpinnerModule],
+  imports: [ProductsAdmin, NewItem, MatProgressSpinnerModule, MenuSide],
   templateUrl: './admin.html',
   styleUrl: './admin.scss',
 })
