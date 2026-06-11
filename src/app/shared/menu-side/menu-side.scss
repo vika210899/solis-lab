@@ -6,10 +6,12 @@
   flex-wrap: wrap;
 
   a {
+    cursor: pointer;
     display: block;
     padding-bottom: 0.5rem;
     width: 10rem;
-    font-size: 1.4rem;
+    border: none;
+    font-size: large;
 
     &:hover,
     &:focus,
