@@ -1,27 +1,25 @@
-<div class="container">
-  @if (!categoriesService.getSelectedCategory()()) {
-    @if (allProducts.length === 0) {
-      <p>New items coming soon 🫶</p>
-    } @else {
-      <ul id="products" class="card-flex">
-        @for (product of allProducts; track product.id) {
-          <li>
-            <app-product-card-template [product]="product" />
-          </li>
-        }
-      </ul>
-    }
+@if (!categoriesService.getSelectedCategory()()) {
+  @if (allProducts.length === 0) {
+    <p>New items coming soon 🫶</p>
   } @else {
-    @if (selectedCategoryProducts.length === 0) {
-      <p>New items coming soon 🫶</p>
-    } @else {
-      <ul id="products" class="card-flex">
-        @for (product of selectedCategoryProducts; track product.id) {
-          <li>
-            <app-product-card-template [product]="product" />
-          </li>
-        }
-      </ul>
-    }
+    <ul id="products" class="card-flex">
+      @for (product of allProducts; track product.id) {
+        <li>
+          <app-product-card-template [product]="product" />
+        </li>
+      }
+    </ul>
   }
-</div>
+} @else {
+  @if (selectedCategoryProducts.length === 0) {
+    <p>New items coming soon 🫶</p>
+  } @else {
+    <ul id="products" class="card-flex">
+      @for (product of selectedCategoryProducts; track product.id) {
+        <li>
+          <app-product-card-template [product]="product" />
+        </li>
+      }
+    </ul>
+  }
+}
