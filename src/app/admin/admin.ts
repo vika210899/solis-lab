@@ -1,10 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { ProductsAdmin } from './products-admin/products-admin';
 import { CategoriesService } from '../categories/categories.service';
+import { NewItem } from './new-item/new-item';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-admin',
-  imports: [ProductsAdmin],
+  imports: [ProductsAdmin, NewItem, MatProgressSpinnerModule],
   templateUrl: './admin.html',
   styleUrl: './admin.scss',
 })
@@ -14,9 +16,18 @@ export class Admin {
   selectedCategoryId = 'n';
   categories = this.categoriesService.getAllCategories();
   selected!: boolean;
+  isOpenAddingForm = false;
 
   onSelectCategory(id: string) {
     this.selectedCategoryId = id;
     this.categoriesService.saveAsSelectedCategory(id);
+  }
+
+  onStartAddItem() {
+    this.isOpenAddingForm = !this.isOpenAddingForm;
+  }
+
+  onCancelAddItem() {
+    this.isOpenAddingForm = !this.isOpenAddingForm;
   }
 }

@@ -1,34 +1,29 @@
-<button class="btn green btn-medium" (click)="onStartAddItem()">Add item</button>
-<app-new-item [isOpen]="isOpenAddingForm" (cancel)="onCancelAddItem()" />
-
-<div class="container">
-  @if (!this.categoriesService.getSelectedCategory()()?.id) {
-    @if (allProducts.length === 0) {
-      <p>New items coming soon 🫶</p>
-    } @else {
-      <ul id="products" class="card-flex">
-        @for (product of allProducts; track product.id) {
-          <li>
-            <app-product-card-template [product]="product">
-              <app-product-card-admin [product]="product" />
-            </app-product-card-template>
-          </li>
-        }
-      </ul>
-    }
+@if (!this.categoriesService.getSelectedCategory()()?.id) {
+  @if (allProducts.length === 0) {
+    <p>New items coming soon 🫶</p>
   } @else {
-    @if (selectedCategoryProducts.length === 0) {
-      <p>New items coming soon 🫶</p>
-    } @else {
-      <ul id="products" class="card-flex">
-        @for (product of selectedCategoryProducts; track product.id) {
-          <li>
-            <app-product-card-template [product]="product">
-              <app-product-card-admin [product]="product" />
-            </app-product-card-template>
-          </li>
-        }
-      </ul>
-    }
+    <ul id="products" class="card-flex">
+      @for (product of allProducts; track product.id) {
+        <li>
+          <app-product-card-template [product]="product">
+            <app-product-card-admin [product]="product" />
+          </app-product-card-template>
+        </li>
+      }
+    </ul>
   }
-</div>
+} @else {
+  @if (selectedCategoryProducts.length === 0) {
+    <p>New items coming soon 🫶</p>
+  } @else {
+    <ul id="products" class="card-flex">
+      @for (product of selectedCategoryProducts; track product.id) {
+        <li>
+          <app-product-card-template [product]="product">
+            <app-product-card-admin [product]="product" />
+          </app-product-card-template>
+        </li>
+      }
+    </ul>
+  }
+}
