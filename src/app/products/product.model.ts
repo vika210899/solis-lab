@@ -30,7 +30,7 @@ export const PRODUCT_LIST: Product[] = [
   {
     id: 'n2',
     name: 'beads necklace',
-    picture: 'IMG_9466.jpg',
+    picture: 'n2.jpg',
     price: 5299,
     categoryTypeId: 'n',
     inStock: true,
@@ -39,8 +39,17 @@ export const PRODUCT_LIST: Product[] = [
   {
     id: 'n3',
     name: 'tiger eye necklace',
-    picture: 'IMG_9466.jpg',
+    picture: 'n3.jpg',
     price: 4599,
+    categoryTypeId: 'n',
+    inStock: true,
+    isNew: false,
+  },
+  {
+    id: 'n4',
+    name: 'cat eye necklace',
+    picture: 'n4.jpg',
+    price: 4999,
     categoryTypeId: 'n',
     inStock: true,
     isNew: false,
@@ -48,7 +57,7 @@ export const PRODUCT_LIST: Product[] = [
   {
     id: 'e1',
     name: 'tiger eye earrings',
-    picture: 'IMG_9466.jpg',
+    picture: 'e1.jpg',
     price: 4599,
     categoryTypeId: 'e',
     inStock: true,
@@ -57,7 +66,7 @@ export const PRODUCT_LIST: Product[] = [
   {
     id: 'e2',
     name: 'classic earings',
-    picture: 'IMG_9466.jpg',
+    picture: 'e2.jpg',
     price: 3999,
     categoryTypeId: 'e',
     inStock: true,
@@ -66,7 +75,7 @@ export const PRODUCT_LIST: Product[] = [
   {
     id: 'b1',
     name: 'pearl bracelet',
-    picture: 'IMG_9466.jpg',
+    picture: 'n5.jpg',
     price: 3599,
     categoryTypeId: 'b',
     inStock: true,

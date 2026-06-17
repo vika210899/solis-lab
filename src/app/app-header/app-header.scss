@@ -21,6 +21,7 @@ a {
   display: flex;
   justify-content: space-between;
   gap: 2rem;
+  align-items: center;
 }
 
 .flex-item-left {
@@ -35,6 +36,7 @@ a {
   display: flex;
   justify-content: end;
   gap: 2rem;
+  align-items: center;
 }
 
 .location {
@@ -43,10 +45,19 @@ a {
 
 .language {
   min-width: 4rem;
+  font-size: medium;
 }
 
 .mobile {
   display: none;
+}
+
+i {
+  font-size: medium;
+}
+
+img {
+  width: 12%;
 }
 
 @media (max-width: 992px) {
@@ -62,5 +73,9 @@ a {
 
   .mobile {
     display: contents;
+  }
+
+  img {
+    width: 12%;
   }
 }
