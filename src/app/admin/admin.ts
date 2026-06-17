@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { ProductsAdmin } from './products-admin/products-admin';
 import { CategoriesService } from '../categories/categories.service';
 import { NewItem } from './new-item/new-item';
@@ -20,12 +20,20 @@ export class Admin {
   selected!: boolean;
   isOpenAddingForm = false;
 
+  // @HostListener('document:click', ['$event'])
+  // onDocumentClick(event: Event): void {
+  //   if (this.isOpenAddingForm) {
+  //     this.isOpenAddingForm = !this.isOpenAddingForm;
+  //   }
+  // }
+
   onSelectCategory(id: string) {
     this.selectedCategoryId = id;
     this.categoriesService.saveAsSelectedCategory(id);
   }
 
-  onStartAddItem() {
+  onStartAddItem(event: Event) {
+    event.stopPropagation();
     this.isOpenAddingForm = !this.isOpenAddingForm;
   }
 

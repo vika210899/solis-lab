@@ -1,12 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { ProductCardAdmin } from '../product-card-admin/product-card-admin';
 import { ProductsService } from '../../products/products.service';
 import { CategoriesService } from '../../categories/categories.service';
-import { ProductCardTemplate } from '../../shared/product-card-template/product-card-template';
+import { ProductCardAdminTemplate } from '../../shared/product-card-admin-template/product-card-admin-template';
 
 @Component({
   selector: 'app-products-admin',
-  imports: [ProductCardAdmin, ProductCardTemplate],
+  imports: [ProductCardAdminTemplate],
   templateUrl: './products-admin.html',
   styleUrl: './products-admin.scss',
 })

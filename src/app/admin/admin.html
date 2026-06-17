@@ -12,7 +12,7 @@
       }}
     </h2>
     <div class="">
-      <button appButton class="btn red" (click)="onStartAddItem()">Add new item</button>
+      <button appButton class="btn red" (click)="onStartAddItem($event)">Add new item</button>
       @defer (on idle) {
         <app-new-item [isOpen]="isOpenAddingForm" (cancel)="onCancelAddItem()" />
       } @placeholder (minimum 500ms) {

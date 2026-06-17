@@ -1,5 +1,4 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { type NewProduct } from '../../products/product.model';
 import { FormsModule } from '@angular/forms';
 import { ProductsService } from '../../products/products.service';
 import { CategoriesService } from '../../categories/categories.service';

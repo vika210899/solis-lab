@@ -22,7 +22,7 @@ h1 {
   padding-top: 1.5rem;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   // align-items: center;
   gap: 3rem;
   flex-wrap: wrap;
@@ -40,7 +40,7 @@ h1 {
 
 .section-card-flex {
   // flex: 2;
-  width: calc(calc(100% - 7.5rem) * 0.87);
+  width: calc(calc(100% - 6.5rem) * 0.85);
   // padding: 0.5rem;
   display: flex;
   flex-direction: row;

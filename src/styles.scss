@@ -28,7 +28,7 @@ body {
   // Set a default background, font and text colors for the application using
   // Angular Material's system-level CSS variables. Learn more about these
   // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
+  // background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
 
@@ -89,8 +89,23 @@ img {
 }
 
 dialog {
+  position: fixed;
+  top: 40%;
+  left: 30%;
+  width: 40%;
+  // height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: none; /* Скрыто по умолчанию */
+  // display: flex;
+  justify-content: center;
+  align-items: center;
+  // will-change: opacity;
   z-index: 100;
-  //   position: relative;
+}
+
+dialog.active {
+  display: flex;
 }
 
 .green {
@@ -109,7 +124,7 @@ dialog {
 }
 
 .container {
-  padding: 60px;
+  padding: 3rem 4rem;
 }
 
 .btn {
