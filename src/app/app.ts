@@ -5,10 +5,11 @@ import { Categories } from './categories/categories';
 import { AppFooter } from './app-footer/app-footer';
 import { Admin } from './admin/admin';
 import { AboutUs } from './about-us/about-us';
+import { RunningLine } from './shared/running-line/running-line';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AppHeader, Categories, AppFooter, Admin, AboutUs],
+  imports: [RouterOutlet, AppHeader, Categories, AppFooter, Admin, AboutUs, RunningLine],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
