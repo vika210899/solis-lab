@@ -7,8 +7,10 @@ import { DeliveryComponent } from './app-footer/delivery-component/delivery-comp
 import { ReturnComponent } from './app-footer/return-component/return-component';
 import { HomeComponent } from './home-component/home-component';
 import { AboutComponent } from './app-footer/about-component/about-component';
+import { Cart } from './cart/cart';
 
 export const routes: Routes = [
+  { path: 'cart', component: Cart },
   { path: 'privacy', component: PrivacyComponent },
   { path: 'about', component: AboutComponent },
   { path: 'delivery', component: DeliveryComponent },
