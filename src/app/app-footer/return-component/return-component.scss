@@ -1,0 +1,26 @@
+p {
+  padding: 3rem;
+  text-align: center;
+}
+
+.plug {
+  height: 70%;
+}
+
+@media (max-width: 992px) {
+  .plug {
+    height: 75%;
+  }
+}
+
+@media (max-width: 768px) {
+  .plug {
+    height: 80%;
+  }
+}
+
+@media (max-width: 576px) {
+  .plug {
+    height: 50%;
+  }
+}
