@@ -45,11 +45,19 @@
 
   .social {
     min-width: 8rem;
+
+    .phone {
+      margin-top: 1rem;
+      p {
+        line-height: 1.6;
+      }
+    }
   }
 }
 
 span,
-li {
+li,
+p {
   font-family: 'Mulish', sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;

@@ -1,27 +1,38 @@
 <div class="footer-container">
   <div class="footer-flex">
-    <img src="logo-text-light.svg" alt="logo Solis Lab" class="logo" width="149px" height="25px" />
+    <img
+      src="logo-text-light.svg"
+      alt="logo Solis Lab"
+      routerLink="/"
+      class="logo"
+      width="149px"
+      height="25px"
+    />
 
     <div class="contact">
       <h4>INFO</h4>
       <ul>
-        <li>Return</li>
-        <li>About</li>
-        <li>Delivery</li>
-        <li>Privacy Policy</li>
+        <li routerLink="/return">Return</li>
+        <li routerLink="/about">About</li>
+        <li routerLink="/delivery">Delivery</li>
+        <li routerLink="/privacy">Privacy Policy</li>
       </ul>
     </div>
 
     <div class="social">
       <h4>Follow Us</h4>
       <ul>
-        <a href="#admin-page"><i class="fab fa-instagram fa-2x"></i></a>
-        <a (click)="openAdminPage()"><i class="fab fa-telegram fa-2x"></i></a>
-        <a href="#"><i class="fab fa-pinterest fa-2x"></i></a>
+        <a (click)="navigateToInstagram()"><i class="fab fa-instagram fa-2x"></i></a>
+        <a (click)="navigateToTelegram()"><i class="fab fa-telegram fa-2x"></i></a>
+        <a (click)="navigateToPinterest()"><i class="fab fa-pinterest fa-2x"></i></a>
       </ul>
+      <div class="phone">
+        <p>Phone:</p>
+        <p>+375 (29) 777-77-77</p>
+      </div>
     </div>
 
-    <button appButtonArrow class="btn-medium">Contact us</button>
+    <button appButtonArrow class="btn-medium" (click)="navigateToTelegram()">Contact us</button>
   </div>
   <div class="footer-flex">
     <span>2026 © Solislab</span>
