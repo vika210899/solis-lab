@@ -1,33 +1,52 @@
 <div class="header-container">
   <div class="flex-item-left">
-    <div class="menu">
+    <!-- <div class="menu">
       <button matIconButton class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
       <i class="fa-solid fa-magnifying-glass mobile"></i>
-    </div>
+    </div> -->
 
     <div class="flex-row">
-      <a href="#admin-page">Catalog</a>
-      <a>Collection</a>
-      <a href="#">About</a>
+      <a routerLink="/" fragment="best-seller">Catalog</a>
+      <!-- <a>Collection</a> -->
+      <a routerLink="/" fragment="about-us">About</a>
     </div>
   </div>
-  <img src="logo-text-dark.svg" alt="logo Solis Lab" width="130px" height="auto" />
-
+  <img src="logo-text-dark.svg" alt="logo Solis Lab" routerLink="/" width="130px" height="auto" />
   <!-- <img src="logoTextGray.png" alt="logo-gray" /> -->
 
   <div class="flex-item-right">
-    <div class="location">
+    <!-- <div class="location">
       <i class="fa-solid fa-location-dot"></i>
       Minsk
       <i class="fa-solid fa-angle-down"></i>
-    </div>
-    <div class="language laptop">EN | EU</div>
-    <div class="language mobile">EN</div>
+    </div> -->
+    <!-- <div class="language laptop">EN | EU</div>
+    <div class="language mobile">EN</div> -->
     <!-- <div class="currency">EU  RUB</div> -->
-    <i class="fa-solid fa-magnifying-glass laptop"></i>
-    <i class="fa-regular fa-user"></i>
-    <i class="fa-solid fa-basket-shopping"></i>
+    <!-- <i class="fa-solid fa-magnifying-glass laptop"></i> -->
+    <i class="fa-regular fa-user" (click)="onStartAuth($event)"></i>
+    <i class="fa-solid fa-basket-shopping" routerLink="/cart"></i>
   </div>
 </div>
+
+<dialog [open]="isOpen" [class.active]="isOpen">
+  <form id="toAddItem" class="form" (ngSubmit)="onAuth()">
+    <h4>Sign in:</h4>
+    <div class="option">
+      <label for="productsToAddName">Email: </label>
+      <input
+        type="text"
+        placeholder="Email"
+        maxlength="30"
+        id="productsToAddName"
+        name="newName"
+        [(ngModel)]="newName"
+        required
+      />
+    </div>
+    <button class="btn green" type="submit">Submit</button>
+    <button class="btn" type="reset" (click)="onCancel()">Back</button>
+  </form>
+</dialog>
