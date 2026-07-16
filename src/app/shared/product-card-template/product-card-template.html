@@ -1,7 +1,42 @@
 <div class="product-card">
   @if (product) {
-    <img src="/{{ product.picture }}" alt="{{ product.name }} Picture" />
-    <h4>"{{ product.name }}"</h4>
-    <ng-content />
+    <!-- <img src="/{{ product.picture }}" alt="{{ product.name }} Picture" />
+    <button><i class="fa-solid fa-ellipsis-vertical"></i></button>
+    <p>{{ product.name }}</p>
+    <span>{{ product.price | currency }}</span>
+    <ng-content /> -->
+
+    <div class="image-container">
+      <img src="/{{ product.picture }}" alt="{{ product.name }} Picture" class="product-img" />
+      <ng-template appAuth="user">
+        <button matIconButton class="like-btn" aria-label="Like button">
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </ng-template>
+      <ng-template appAuth="admin">
+        <div class="menu-container" [class.active]="isMenuOpen()">
+          <button class="context-btn" (click)="onToggleMenu($event)" aria-label="Item menu">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+          @if (isMenuOpen()) {
+            <div class="dropdown" [class.active]="isMenuOpen()">
+              @if (product.inStock) {
+                <button class="dropdown-item" (click)="onArchiveItem()">Archive item</button>
+              } @else {
+                <button class="dropdown-item" (click)="onUnarchiveItem()">Unarchive item</button>
+              }
+
+              <button class="dropdown-item delete-trigger" (click)="onStartDeleteItem($event)">
+                Delete item
+              </button>
+            </div>
+          }
+        </div>
+      </ng-template>
+    </div>
+    <div class="product-info">
+      <p class="product-title">{{ product.name }}</p>
+      <span class="product-price">{{ product.price | currency }}</span>
+    </div>
   }
 </div>

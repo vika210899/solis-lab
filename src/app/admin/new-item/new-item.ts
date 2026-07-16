@@ -23,7 +23,7 @@ export class NewItem {
   newInStock = true;
   newIsNew = true;
 
-  onAddItem() {
+  onAddItem(): void {
     this.productsService.addProduct({
       name: this.newName,
       picture: this.newPicture,
@@ -35,7 +35,7 @@ export class NewItem {
     this.cancel.emit();
   }
 
-  onCancelAddItem() {
+  onCancelAddItem(): void {
     this.cancel.emit();
   }
 }

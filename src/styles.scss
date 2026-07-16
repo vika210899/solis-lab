@@ -124,14 +124,15 @@ dialog.active {
 }
 
 .container {
-  padding: 3rem 4rem;
+  padding: 2.5rem 3rem;
 }
 
 .btn {
   cursor: pointer;
   padding: 0.3rem 1rem;
   margin: 0.5rem;
-  width: 10.5rem;
+  // width: 10.5rem;
+  width: fit-content;
   border: none;
   border-radius: 3px;
   box-shadow: 1px 1px 2px var(--dark-primary-color);

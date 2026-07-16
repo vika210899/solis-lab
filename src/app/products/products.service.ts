@@ -16,11 +16,11 @@ export class ProductsService {
     }
   }
 
-  getAllProducts() {
+  getAllProducts(): Product[] {
     return this.products;
   }
 
-  getSelectedCategoryProducts(categoryId: string) {
+  getSelectedCategoryProducts(categoryId: string): Product[] {
     return this.products.filter((product: Product) => product.categoryTypeId === categoryId);
   }
 
@@ -33,19 +33,19 @@ export class ProductsService {
     return this.selectedProduct;
   }
 
-  getInStockProducts() {
+  getInStockProducts(): Product[] {
     return this.products.filter((product: Product) => product.inStock === true);
   }
 
-  getInArchiveProducts() {
+  getInArchiveProducts(): Product[] {
     return this.products.filter((product: Product) => product.inStock === false);
   }
 
-  getNewProducts() {
+  getNewProducts(): Product[] {
     return this.products.filter((product: Product) => product.isNew === true);
   }
 
-  addProduct(newProductData: NewProduct) {
+  addProduct(newProductData: NewProduct): void {
     let newId =
       newProductData.categoryTypeId +
       Number(this.getSelectedCategoryProducts(newProductData.categoryTypeId).length + 1);
@@ -61,30 +61,42 @@ export class ProductsService {
     this.saveProducts();
   }
 
-  deleteProduct(id: string) {
+  deleteProduct(id: string): void {
     this.products = this.products.filter((product) => product.id !== id);
     this.saveProducts();
   }
 
-  archiveProduct(id: string) {
-    for (let product of this.products) {
+  archiveProduct(id: string): void {
+    this.products = this.products.map((product) => {
       if (product.id === id) {
-        product.inStock = false;
+        return { ...product, inStock: false };
       }
-    }
+      return product;
+    });
+    // for (let product of this.products) {
+    //   if (product.id === id) {
+    //     product.inStock = false;
+    //   }
+    // }
     this.saveProducts();
   }
 
-  unarchiveProduct(id: string) {
-    for (let product of this.products) {
+  unarchiveProduct(id: string): void {
+    this.products = this.products.map((product) => {
       if (product.id === id) {
-        product.inStock = true;
+        return { ...product, inStock: true };
       }
-    }
+      return product;
+    });
+    // for (let product of this.products) {
+    //   if (product.id === id) {
+    //     product.inStock = true;
+    //   }
+    // }
     this.saveProducts();
   }
 
-  private saveProducts() {
+  private saveProducts(): void {
     localStorage.setItem('products', JSON.stringify(this.products));
   }
 }
