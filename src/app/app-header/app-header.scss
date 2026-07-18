@@ -56,15 +56,16 @@ i {
 }
 
 img {
-  width: 12%;
+  width: 7rem;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 576px) {
   .header-container {
     padding: 2rem;
   }
 
-  .flex-row,
+  // .flex-row,
+  .about,
   .location,
   .laptop {
     display: none;
@@ -75,6 +76,6 @@ img {
   }
 
   img {
-    width: 12%;
+    width: 6rem;
   }
 }
