@@ -8,8 +8,8 @@
 .marquee-text {
   display: inline-block;
   animation: scroll-left 9s linear infinite;
-  //   text-transform: uppercase;
-  font-size: 7rem;
+  text-transform: uppercase;
+  font-size: 6rem;
   line-height: 1.1;
 
   span {
@@ -19,9 +19,9 @@
   }
 }
 
-// .marquee-text:hover {
-//   animation-play-state: paused;
-// }
+.marquee-text:hover {
+  animation-play-state: paused;
+}
 
 @keyframes scroll-left {
   0% {
