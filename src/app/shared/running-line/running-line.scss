@@ -31,3 +31,15 @@
     transform: translate(-50%, 0);
   }
 }
+
+@media (max-width: 992px) {
+  .marquee-text {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .marquee-text {
+    font-size: 3rem;
+  }
+}
