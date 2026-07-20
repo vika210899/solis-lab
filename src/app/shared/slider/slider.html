@@ -1,0 +1,86 @@
+<div class="container">
+  <div
+    #slider
+    class="slider"
+    tabindex="0"
+    (mouseenter)="onMouseEnter()"
+    (mouseleave)="onMouseLeave()"
+    (pointerdown)="onPointerDown($event)"
+    (pointermove)="onPointerMove($event)"
+    (pointerup)="onPointerUp($event)"
+    (pointercancel)="onPointerCancel($event)"
+  >
+    <div
+      class="slides"
+      [style.transform]="translate()"
+      [style.transition]="transition()"
+      (transitionend)="onTransitionEnd($event)"
+    >
+      @for (slide of renderedSlides(); track $index) {
+        <div class="slide">
+          <div class="image">
+            <img [src]="slide.image" [alt]="slide.title" loading="lazy" draggable="false" />
+          </div>
+
+          <div class="content" [style.background]="slide.backgroundColor ?? '#f5f5f5'">
+            <h2>
+              {{ slide.title }}
+            </h2>
+
+            <p>
+              {{ slide.description }}
+            </p>
+
+            <button appButtonArrow class="btn" [routerLink]="slide.buttonLink">
+              {{ slide.buttonText }}
+            </button>
+          </div>
+        </div>
+      } @empty {
+        <div class="slide">
+          <div class="image">
+            <img src="slide1.jpg" alt="New Collection" loading="lazy" draggable="false" />
+          </div>
+
+          <div class="content" style="background-color: #f5f5f5">
+            <h2>New Collection</h2>
+            <p>Handmade jewelry made from natural stones</p>
+            <button appButtonArrow class="btn" routerLink="/catalog">New Collection</button>
+          </div>
+        </div>
+      }
+    </div>
+
+    @if (canNavigate()) {
+      <div class="dots">
+        @for (slide of slides(); track $index) {
+          <button
+            [class.active]="currentDot() === $index"
+            (pointerdown)="$event.stopPropagation()"
+            (click)="goTo($index)"
+          ></button>
+        }
+      </div>
+    }
+
+    @if (canNavigate() && arrows()) {
+      <button
+        class="arrow left"
+        (pointerdown)="$event.stopPropagation()"
+        (click)="prev()"
+        aria-label="Previous slide"
+      >
+        ❮
+      </button>
+
+      <button
+        class="arrow right"
+        (pointerdown)="$event.stopPropagation()"
+        (click)="next()"
+        aria-label="Next slide"
+      >
+        ❯
+      </button>
+    }
+  </div>
+</div>
